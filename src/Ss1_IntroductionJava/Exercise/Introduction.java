@@ -1,4 +1,4 @@
-package Ss1_Module2.Exercise;
+package Ss1_IntroductionJava.Exercise;
 
 import java.util.Scanner;
 
