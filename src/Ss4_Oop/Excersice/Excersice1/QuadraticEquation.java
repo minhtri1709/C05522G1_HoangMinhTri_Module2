@@ -1,7 +1,9 @@
 package Ss4_Oop.Excersice.Excersice1;
 
 public class QuadraticEquation {
-    double numberFirst, numberSecond, numberThird;
+    double numberFirst;
+    double numberSecond;
+    double numberThird;
 
     public QuadraticEquation() {
     }

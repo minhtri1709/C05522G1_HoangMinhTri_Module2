@@ -3,7 +3,8 @@ package Ss4_Oop.Excersice.Excersice3;
 public class Fan {
     boolean on;
     String color;
-    int number, radius;
+    int number;
+    int radius;
     int speed;
     static final int SLOW = 1;
     static final int MEDIUM = 2;
@@ -19,6 +20,7 @@ public class Fan {
         this.color = color;
         this.on = on;
     }
+
     public int getSLOW() {
         return SLOW;
     }

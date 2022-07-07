@@ -3,28 +3,30 @@ package Ss4_Oop.Excersice.Excersice2;
 import java.util.Date;
 
 public class StopWatch {
-    private Date startTime, endTime;
+    private Date startTime;
+    private Date endTime;
 
-    public StopWatch(){
+    public StopWatch() {
         this.startTime = new Date();
     }
 
-    public Date getStartTime(){
+    public Date getStartTime() {
         return this.startTime;
     }
 
-    public Date getEndTime(){
+    public Date getEndTime() {
         return this.endTime;
     }
 
-    public void start(){
+    public void start() {
         this.startTime = new Date();
     }
-    public void stop(){
+
+    public void stop() {
         this.endTime = new Date();
     }
 
-    public long getElapsedTime(){
+    public long getElapsedTime() {
         return endTime.getTime() - startTime.getTime();
     }
 }
