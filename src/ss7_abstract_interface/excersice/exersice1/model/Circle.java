@@ -2,7 +2,7 @@ package ss7_abstract_interface.excersice.exersice1.model;
 
 import ss7_abstract_interface.excersice.exersice1.service.Resizeable;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape  {
     private double radius = 1.0;
 
     public Circle() {

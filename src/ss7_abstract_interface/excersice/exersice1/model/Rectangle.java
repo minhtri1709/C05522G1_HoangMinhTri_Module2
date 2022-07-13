@@ -1,8 +1,6 @@
 package ss7_abstract_interface.excersice.exersice1.model;
 
-import ss7_abstract_interface.excersice.exersice1.service.Resizeable;
-
-public class Rectangle extends Shape implements Resizeable{
+public class Rectangle extends Shape {
     private double width = 1.0;
     private double length = 1.0;
 
