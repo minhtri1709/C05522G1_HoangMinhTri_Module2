@@ -15,7 +15,8 @@ public class MotobikeController {
                     "1. Thêm mới phương tiện.\n" +
                     "2. Hiển thị phương tiện\n" +
                     "3. Xoá phương tiện.\n" +
-                    "4. Thoát");
+                    "4. Tìm kiếm theo biển số xe.\n" +
+                    "5. Thoát");
 
             int choose = Integer.parseInt(scanner.nextLine());
 
@@ -30,6 +31,8 @@ public class MotobikeController {
                     iVehicleService.remove();
                     break;
                 case 4:
+                    iVehicleService.searchVehicleNumber();
+                case 5:
                     return;
             }
         }

@@ -1,14 +1,14 @@
 package ss9_dsa.homework.model;
 
-public class CarClass extends VehicleClass{
+public class Car extends Vehicle {
     private int seat;
     private String kindOfCar;
 
-    public CarClass() {
+    public Car() {
 
     }
 
-    public CarClass(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner, int seat, String kindOfCar) {
+    public Car(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner, int seat, String kindOfCar) {
         super(vehicleNumber, manufacturerName, yearOfManufacture, nameOfOwner);
         this.seat = seat;
         this.kindOfCar = kindOfCar;

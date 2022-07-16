@@ -19,6 +19,7 @@ public class VehicleController {
 
             System.out.println("Mời bạn nhập vào lựa chọn:  ");
             int choose = Integer.parseInt(scanner.nextLine());
+
             switch (choose) {
                 case 1:{
                     carController.optionCar();

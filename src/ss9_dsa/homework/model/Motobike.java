@@ -1,12 +1,12 @@
 package ss9_dsa.homework.model;
 
-public class MotobikeClass extends VehicleClass{
+public class Motobike extends Vehicle {
     private int wattage;
 
-    public MotobikeClass() {
+    public Motobike() {
     }
 
-    public MotobikeClass(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner) {
+    public Motobike(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner, int wattage) {
         super(vehicleNumber, manufacturerName, yearOfManufacture, nameOfOwner);
     }
 

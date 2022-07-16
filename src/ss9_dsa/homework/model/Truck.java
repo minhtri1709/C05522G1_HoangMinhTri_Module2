@@ -1,13 +1,16 @@
 package ss9_dsa.homework.model;
 
-public class TruckClass extends VehicleClass{
+public class Truck extends Vehicle {
     private int tonnage;
 
-    public TruckClass() {
+    public Truck() {
     }
 
-    public TruckClass(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner) {
+
+
+    public Truck(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner, int tonnage) {
         super(vehicleNumber, manufacturerName, yearOfManufacture, nameOfOwner);
+        this.tonnage = tonnage;
     }
 
     public int getTonnage() {

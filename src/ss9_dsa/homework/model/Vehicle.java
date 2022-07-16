@@ -1,20 +1,23 @@
 package ss9_dsa.homework.model;
 
-public abstract class VehicleClass {
+import java.util.List;
+
+public abstract class Vehicle {
     private String vehicleNumber;
     private String manufacturerName;
     private int yearOfManufacture;
     private String nameOfOwner;
 
 
-    public VehicleClass(){}
+    public Vehicle(){}
 
-    public VehicleClass(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner) {
+    public Vehicle(String vehicleNumber, String manufacturerName, int yearOfManufacture, String nameOfOwner) {
         this.vehicleNumber = vehicleNumber;
         this.manufacturerName = manufacturerName;
         this.yearOfManufacture = yearOfManufacture;
         this.nameOfOwner = nameOfOwner;
     }
+
 
     public String getVehicleNumber() {
         return vehicleNumber;

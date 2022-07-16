@@ -6,4 +6,7 @@ public interface IVehicleService {
     void displayList();
 
     void remove();
+
+    void searchVehicleNumber();
+
 }
