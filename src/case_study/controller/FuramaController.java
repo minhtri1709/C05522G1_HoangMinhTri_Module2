@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class FuramaController {
     public  static void displayMainMenu(){
          Scanner scanner = new Scanner(System.in);
+         EmployeeManagementController employeeManagementController = new EmployeeManagementController();
+         CustomerManagementController customerManagementController = new CustomerManagementController();
+         FacilityManagementController facilityManagementController = new FacilityManagementController();
+         PromotionManagementController promotionManagementController = new PromotionManagementController();
+         BookingManagermentController bookingManagermentController = new BookingManagermentController();
 
          do {
              System.out.println("Select function by number, please\n" +
@@ -19,11 +24,21 @@ public class FuramaController {
              int choose = Integer.parseInt(scanner.nextLine());
 
              switch (choose){
-                 case 1:
-                 case 2:
-                 case 3:
-                 case 4:
-                 case 5:
+                 case 1:{
+                     employeeManagementController.menuEmployee();
+                 }
+                 case 2:{
+                     customerManagementController.menuCustomer();
+                 }
+                 case 3:{
+                     facilityManagementController.menuFacility();
+                 }
+                 case 4:{
+                     bookingManagermentController.menuBooking();
+                 }
+                 case 5:{
+                     promotionManagementController.MenuPromotion();
+                 }
                  case 6: {
                      System.exit(1);
                  }
