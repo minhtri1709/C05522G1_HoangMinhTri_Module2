@@ -8,4 +8,6 @@ public interface ITeacherService {
     void display();
 
     void search();
+
+    void sortByName();
 }

@@ -1,4 +1,4 @@
-package ss11_algorithmSearching.practice;
+package ss11_algorithm_searching.practice;
 
 public class BinarySearch {
     static int[] list = {2, 4, 7, 10, 11, 45, 50, 59, 60, 66, 69, 70, 79};

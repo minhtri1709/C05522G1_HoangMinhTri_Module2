@@ -5,6 +5,7 @@ import ss9_dsa.demo.src.model.Teacher;
 import ss9_dsa.demo.src.service.ITeacherService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -103,6 +104,20 @@ public class TeacherService implements ITeacherService {
             }
 
         } while (true);
+    }
+
+    @Override
+    public void sortByName() {
+        boolean isSwap = true;
+        for (int i = 0; i < teacherList.size() && isSwap; i++){
+            isSwap = false;
+            for (int j = 0; j < teacherList.size() - 1 -i;j++){
+                if(teacherList.get(j).getName().compareTo(teacherList.get(j+1).getName()) > 0){
+                    Collections.swap(teacherList, j, j + 1);
+                    isSwap = true;
+                }
+            }
+        }
     }
 
     public static Teacher infoTeacher(){

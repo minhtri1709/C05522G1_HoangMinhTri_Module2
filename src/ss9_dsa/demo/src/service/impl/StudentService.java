@@ -4,6 +4,7 @@ import ss9_dsa.demo.src.model.Student;
 import ss9_dsa.demo.src.service.IStudentService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -99,6 +100,20 @@ public class StudentService implements IStudentService {
             }
 
         } while (true);
+    }
+
+    @Override
+    public void sortByName() {
+        boolean isSwap = true;
+        for (int i = 0; i < studentList.size() && isSwap; i++){
+            isSwap = false;
+            for (int j = 0; j < studentList.size() - i - i; j++){
+            if(studentList.get(j).getName().compareTo(studentList.get(j+1).getName()) > 0){
+                Collections.swap(studentList,j,j+1);
+                isSwap = true;
+            }
+            }
+        }
     }
 
     public static Student infoStudent() {

@@ -1,4 +1,4 @@
-package ss11_algorithmSearching.excersice.excersice3;
+package ss11_algorithm_searching.excersice.excersice3;
 
 import java.util.LinkedList;
 import java.util.Scanner;

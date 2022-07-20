@@ -1,4 +1,4 @@
-package ss11_algorithmSearching.excersice.excersice2;
+package ss11_algorithm_searching.excersice.excersice2;
 
 import java.util.Arrays;
 import java.util.Scanner;
