@@ -1,5 +1,6 @@
 package ss9_dsa.demo.src.service.impl;
 
+import ss9_dsa.demo.src.exception.DuplicateIDException;
 import ss9_dsa.demo.src.model.Student;
 import ss9_dsa.demo.src.model.Teacher;
 import ss9_dsa.demo.src.service.ITeacherService;
@@ -22,10 +23,9 @@ public class TeacherService implements ITeacherService {
     }
 
 
-
     @Override
     public void display() {
-        for (Teacher teacher : teacherList){
+        for (Teacher teacher : teacherList) {
             System.out.println(teacher);
         }
     }
@@ -65,36 +65,37 @@ public class TeacherService implements ITeacherService {
 
         do {
             switch (choose) {
-                case 1:{
+                case 1: {
                     System.out.println("Nhập vào ID của giảng viên:  ");
                     int idSearching = Integer.parseInt(scanner.nextLine());
                     boolean isExit = false;
 
-                    for(Teacher teacher : teacherList){
-                        if(idSearching == teacher.getId()) {
+                    for (Teacher teacher : teacherList) {
+                        if (idSearching == teacher.getId()) {
                             System.out.println(teacher);
 
-                        } isExit = true;
+                        }
+                        isExit = true;
                         break;
                     }
-                    if(!isExit){
+                    if (!isExit) {
                         System.out.println("Không tìm thấy ID của giảng viên.");
                     }
                 }
-                case 2:{
+                case 2: {
                     System.out.println("Nhập vào tên giảng viên bạn cần tìm kiếm: ");
                     String nameSearching = scanner.nextLine();
                     boolean isExit = false;
 
-                    for (Teacher teacher : teacherList){
-                        if(teacher.getName().toLowerCase().contains(nameSearching)){
+                    for (Teacher teacher : teacherList) {
+                        if (teacher.getName().toLowerCase().contains(nameSearching)) {
                             System.out.println(teacher);
 
 
                             isExit = true;
                         }
                     }
-                    if(!isExit){
+                    if (!isExit) {
                         System.out.println("Không tìm thấy giảng viên. ");
                     }
 
@@ -109,10 +110,10 @@ public class TeacherService implements ITeacherService {
     @Override
     public void sortByName() {
         boolean isSwap = true;
-        for (int i = 0; i < teacherList.size() && isSwap; i++){
+        for (int i = 0; i < teacherList.size() && isSwap; i++) {
             isSwap = false;
-            for (int j = 0; j < teacherList.size() - 1 -i;j++){
-                if(teacherList.get(j).getName().compareTo(teacherList.get(j+1).getName()) > 0){
+            for (int j = 0; j < teacherList.size() - 1 - i; j++) {
+                if (teacherList.get(j).getName().compareTo(teacherList.get(j + 1).getName()) > 0) {
                     Collections.swap(teacherList, j, j + 1);
                     isSwap = true;
                 }
@@ -120,9 +121,25 @@ public class TeacherService implements ITeacherService {
         }
     }
 
-    public static Teacher infoTeacher(){
-        System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+    public static Teacher infoTeacher() {
+        int id;
+        while (true) {
+            try {
+                System.out.print("Nhập id: ");
+                id = Integer.parseInt(scanner.nextLine());
+                for (Teacher teacher : teacherList) {
+                    if (teacher.getId() == id) {
+                        throw new DuplicateIDException("Trùng ID giảng viên!!!");
+                    }
+                }
+                break;
+            } catch (DuplicateIDException e) {
+                System.out.println(e.getMessage());
+            } catch (NumberFormatException e){
+                System.out.println("Vui lòng nhập số!!!");
+            }
+        }
+
         System.out.print("Nhập tên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");

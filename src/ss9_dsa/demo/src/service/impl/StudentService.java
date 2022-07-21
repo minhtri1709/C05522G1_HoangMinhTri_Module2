@@ -1,5 +1,6 @@
 package ss9_dsa.demo.src.service.impl;
 
+import ss9_dsa.demo.src.exception.DuplicateIDException;
 import ss9_dsa.demo.src.model.Student;
 import ss9_dsa.demo.src.service.IStudentService;
 
@@ -117,8 +118,25 @@ public class StudentService implements IStudentService {
     }
 
     public static Student infoStudent() {
-        System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        while (true){
+            try {
+                System.out.print("Nhập id: ");
+                id = Integer.parseInt(scanner.nextLine());
+                for(Student student : studentList){
+                    if(student.getId() == id){
+                        throw new DuplicateIDException("Trùng ID sinh viên!!!");
+                    }
+                }
+                break;
+            }catch (NumberFormatException e){
+                System.out.println("Vui lòng nhập số!!!");
+            }
+            catch (DuplicateIDException e){
+                System.out.println(e.getMessage());
+            }
+        }
+
         System.out.print("Nhập tên: ");
         String name = scanner.nextLine();
         System.out.print("Nhập ngày sinh: ");
