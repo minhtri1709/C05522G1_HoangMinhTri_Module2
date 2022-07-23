@@ -3,13 +3,14 @@ package ss9_dsa.demo.src.controller;
 import ss9_dsa.demo.src.service.ITeacherService;
 import ss9_dsa.demo.src.service.impl.TeacherService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TeacherController {
     private Scanner scanner = new Scanner(System.in);
     private ITeacherService iTeacherService = (ITeacherService) new TeacherService();
 
-    public void menuTeacher(){
+    public void menuTeacher() throws IOException {
         do{
             System.out.println("1. Thêm mới giảng viên \n" +
                     "2. Xoá giảng viên\n" +

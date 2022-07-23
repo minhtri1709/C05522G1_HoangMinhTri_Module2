@@ -4,7 +4,10 @@ import ss9_dsa.demo.src.exception.DuplicateIDException;
 import ss9_dsa.demo.src.model.Student;
 import ss9_dsa.demo.src.model.Teacher;
 import ss9_dsa.demo.src.service.ITeacherService;
+import ss9_dsa.demo.src.utils.ReadFileUtils;
+import ss9_dsa.demo.src.utils.WriteFileUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,9 +19,11 @@ public class TeacherService implements ITeacherService {
 
 
     @Override
-    public void add() {
+    public void add() throws IOException {
+        List<Teacher> teacherList = ReadFileUtils.readTeacherFile("ss9_dsa/demo/src/utils/FileTeacher");
         Teacher teacher = infoTeacher();
         teacherList.add(teacher);
+        WriteFileUtils.writeTeacherFile("ss9_dsa/demo/src/utils/FileTeacher" , teacherList);
         System.out.println("Thêm mới giảng viên thành công! ");
     }
 

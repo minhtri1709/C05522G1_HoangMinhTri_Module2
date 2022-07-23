@@ -1,7 +1,9 @@
 package ss9_dsa.demo.src.service;
 
+import java.io.IOException;
+
 public interface ITeacherService {
-    void add();
+    void add() throws IOException;
 
     void remove();
 

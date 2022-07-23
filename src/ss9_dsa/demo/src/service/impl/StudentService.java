@@ -3,7 +3,10 @@ package ss9_dsa.demo.src.service.impl;
 import ss9_dsa.demo.src.exception.DuplicateIDException;
 import ss9_dsa.demo.src.model.Student;
 import ss9_dsa.demo.src.service.IStudentService;
+import ss9_dsa.demo.src.utils.ReadFileUtils;
+import ss9_dsa.demo.src.utils.WriteFileUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,9 +16,12 @@ public class StudentService implements IStudentService {
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    public void addStudent() {
+    public void addStudent() throws IOException {
+        List<Student> studentList = ReadFileUtils.readStudentFile("ss9_dsa/demo/src/utils/FileStudent");
         Student student = infoStudent();
         studentList.add(student);
+        WriteFileUtils.writeStudentFile("ss9_dsa/demo/src/utils/FileStudent", studentList);
+
         System.out.println("Thêm mới sinh viên thành công!. ");
     }
 
@@ -24,6 +30,8 @@ public class StudentService implements IStudentService {
         for (Student student : studentList) {
             System.out.println(student);
         }
+
+
     }
 
     @Override

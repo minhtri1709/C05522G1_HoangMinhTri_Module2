@@ -3,13 +3,14 @@ package ss9_dsa.demo.src.controller;
 import ss9_dsa.demo.src.service.IStudentService;
 import ss9_dsa.demo.src.service.impl.StudentService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class StudentController {
     private Scanner scanner = new Scanner(System.in);
     private IStudentService iStudentService = (IStudentService) new StudentService();
 
-    public void menuStudent() {
+    public void menuStudent() throws IOException {
         do {
             System.out.println("1. Thêm mới học sinh \n" +
                     "2. Xóa học sinh \n" +

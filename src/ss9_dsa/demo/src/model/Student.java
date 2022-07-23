@@ -38,4 +38,8 @@ public class Student extends Person {
     public void setNameSchool(String nameSchool) {
         this.nameSchool = nameSchool;
     }
+
+    public String getInfo(){
+        return String.format("%s, %s, %s, %s, %s\n", this.getId(), this.getName(), this.getDateOfBirth(), this.getPoint(), this.getNameSchool());
+    }
 }

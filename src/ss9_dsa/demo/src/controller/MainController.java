@@ -1,9 +1,10 @@
 package ss9_dsa.demo.src.controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MainController {
-    public static void menuController() {
+    public static void menuController() throws IOException {
         StudentController studentController = new StudentController();
         TeacherController teacherController = new TeacherController();
         Scanner scanner = new Scanner(System.in);

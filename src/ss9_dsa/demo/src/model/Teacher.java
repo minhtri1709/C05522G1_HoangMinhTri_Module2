@@ -25,4 +25,8 @@ public class Teacher extends Person{
                 "specialize='" + specialize + '\'' +
                 "} " + super.toString();
     }
+
+    public String getInfo(){
+        return String.format("%s, %s, %s, %s\n", this.getId(), this.getName(), this.getDateOfBirth(),this.getSpecialize());
+    }
 }
