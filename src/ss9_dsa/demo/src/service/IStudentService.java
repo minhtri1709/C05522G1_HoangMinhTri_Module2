@@ -7,12 +7,12 @@ import java.io.IOException;
 public interface IStudentService {
     void addStudent() throws IOException;
 
-    void displayAllStudent();
+    void displayAllStudent() throws IOException;
 
-    void removeStudent();
+    void removeStudent() throws IOException;
 
-    void searchStudent();
+    void searchStudent() throws IOException;
 
-    void sortByName();
+    void sortByName() throws IOException;
 
 }

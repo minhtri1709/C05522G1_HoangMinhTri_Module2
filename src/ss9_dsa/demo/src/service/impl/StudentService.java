@@ -15,31 +15,32 @@ import java.util.Scanner;
 public class StudentService implements IStudentService {
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    private static String path = "ss9_dsa/demo/src/utils/FileStudent";
 
     public void addStudent() throws IOException {
-        List<Student> studentList = ReadFileUtils.readStudentFile("ss9_dsa/demo/src/utils/FileStudent");
+        List<Student> studentList = ReadFileUtils.readStudentFile(path);
         Student student = infoStudent();
         studentList.add(student);
-        WriteFileUtils.writeStudentFile("ss9_dsa/demo/src/utils/FileStudent", studentList);
+        WriteFileUtils.writeStudentFile(path, studentList);
 
         System.out.println("Thêm mới sinh viên thành công!. ");
     }
 
     @Override
-    public void displayAllStudent() {
+    public void displayAllStudent() throws IOException {
+        List<Student> studentList = ReadFileUtils.readStudentFile(path);
         for (Student student : studentList) {
             System.out.println(student);
         }
-
-
     }
 
     @Override
-    public void removeStudent() {
+    public void removeStudent() throws IOException {
 
         System.out.println("Mời bạn nhập id của sinh viên cần xóa: ");
         int idRemove = Integer.parseInt(scanner.nextLine());
         boolean isExit = false;
+        List<Student> studentList = ReadFileUtils.readStudentFile(path);
 
         for (Student student : studentList) {
             if (student.getId() == idRemove) {
@@ -58,15 +59,17 @@ public class StudentService implements IStudentService {
         if (!isExit) {
             System.out.println("Không tìm ra ID của sinh viên!  ");
         }
+        WriteFileUtils.writeStudentFile(path, studentList);
     }
 
     @Override
-    public void searchStudent() {
+    public void searchStudent() throws IOException {
         System.out.println("Bạn muốn tìm theo ID hay tên của học sinh: \n" +
                 "1. Tìm theo ID\n" +
                 "2. Tìm theo tên học sinh\n" +
                 "3. Thoát");
         int choose = Integer.parseInt(scanner.nextLine());
+        List<Student> studentList = ReadFileUtils.readStudentFile(path);
 
         do {
             switch (choose) {
@@ -112,7 +115,8 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public void sortByName() {
+    public void sortByName() throws IOException {
+        List<Student> studentList = ReadFileUtils.readStudentFile(path);
         boolean isSwap = true;
         for (int i = 0; i < studentList.size() && isSwap; i++){
             isSwap = false;
@@ -123,6 +127,7 @@ public class StudentService implements IStudentService {
             }
             }
         }
+        WriteFileUtils.writeStudentFile(path, studentList);
     }
 
     public static Student infoStudent() {
@@ -147,12 +152,16 @@ public class StudentService implements IStudentService {
 
         System.out.print("Nhập tên: ");
         String name = scanner.nextLine();
+
         System.out.print("Nhập ngày sinh: ");
         String dateOfBirth = scanner.nextLine();
+
         System.out.print("Nhập điểm: ");
         int point = Integer.parseInt(scanner.nextLine());
+
         System.out.print("Nhập tên trường: ");
         String nameSchool = scanner.nextLine();
+
         Student student = new Student(id, name, dateOfBirth, point, nameSchool);
         return student;
     }

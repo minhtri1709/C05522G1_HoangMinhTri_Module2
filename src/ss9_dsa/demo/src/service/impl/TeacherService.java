@@ -16,30 +16,33 @@ import java.util.Scanner;
 public class TeacherService implements ITeacherService {
     private static List<Teacher> teacherList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    private static String path = "ss9_dsa/demo/src/utils/FileTeacher";
 
 
     @Override
     public void add() throws IOException {
-        List<Teacher> teacherList = ReadFileUtils.readTeacherFile("ss9_dsa/demo/src/utils/FileTeacher");
+        List<Teacher> teacherList = ReadFileUtils.readTeacherFile(path);
         Teacher teacher = infoTeacher();
         teacherList.add(teacher);
-        WriteFileUtils.writeTeacherFile("ss9_dsa/demo/src/utils/FileTeacher" , teacherList);
+        WriteFileUtils.writeTeacherFile(path , teacherList);
         System.out.println("Thêm mới giảng viên thành công! ");
     }
 
 
     @Override
-    public void display() {
+    public void display() throws IOException {
+        List<Teacher> teacherList = ReadFileUtils.readTeacherFile(path);
         for (Teacher teacher : teacherList) {
             System.out.println(teacher);
         }
     }
 
     @Override
-    public void remove() {
+    public void remove() throws IOException {
         System.out.println("Mời bạn nhập id của giảng viên cần xóa: ");
         int idRemove = Integer.parseInt(scanner.nextLine());
         boolean isExit = false;
+        List<Teacher> teacherList = ReadFileUtils.readTeacherFile(path);
 
         for (Teacher teacher : teacherList) {
             if (teacher.getId() == idRemove) {
@@ -54,6 +57,7 @@ public class TeacherService implements ITeacherService {
                 isExit = true;
                 break;
             }
+            WriteFileUtils.writeTeacherFile(path , teacherList);
         }
         if (!isExit) {
             System.out.println("Không tìm ra ID của giảng viên!  ");
@@ -61,12 +65,13 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
-    public void search() {
+    public void search() throws IOException {
         System.out.println("Bạn muốn tìm theo ID hay tên của giảng viên: \n" +
                 "1. Tìm theo ID\n" +
                 "2. Tìm theo tên giảng viên\n" +
                 "3. Thoát");
         int choose = Integer.parseInt(scanner.nextLine());
+        List<Teacher> teacherList = ReadFileUtils.readTeacherFile(path);
 
         do {
             switch (choose) {
@@ -113,8 +118,10 @@ public class TeacherService implements ITeacherService {
     }
 
     @Override
-    public void sortByName() {
+    public void sortByName() throws IOException {
+        List<Teacher> teacherList = ReadFileUtils.readTeacherFile(path);
         boolean isSwap = true;
+
         for (int i = 0; i < teacherList.size() && isSwap; i++) {
             isSwap = false;
             for (int j = 0; j < teacherList.size() - 1 - i; j++) {
@@ -124,6 +131,7 @@ public class TeacherService implements ITeacherService {
                 }
             }
         }
+        WriteFileUtils.writeTeacherFile(path , teacherList);
     }
 
     public static Teacher infoTeacher() {

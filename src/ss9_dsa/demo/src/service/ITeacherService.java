@@ -5,11 +5,11 @@ import java.io.IOException;
 public interface ITeacherService {
     void add() throws IOException;
 
-    void remove();
+    void remove() throws IOException;
 
-    void display();
+    void display() throws IOException;
 
-    void search();
+    void search() throws IOException;
 
-    void sortByName();
+    void sortByName() throws IOException;
 }
