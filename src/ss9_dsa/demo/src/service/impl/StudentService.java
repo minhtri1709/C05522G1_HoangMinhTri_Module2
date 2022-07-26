@@ -4,6 +4,7 @@ import ss9_dsa.demo.src.exception.DuplicateIDException;
 import ss9_dsa.demo.src.model.Student;
 import ss9_dsa.demo.src.service.IStudentService;
 import ss9_dsa.demo.src.utils.ReadFileUtils;
+import ss9_dsa.demo.src.utils.Utils;
 import ss9_dsa.demo.src.utils.WriteFileUtils;
 
 import java.io.IOException;
@@ -149,12 +150,10 @@ public class StudentService implements IStudentService {
                 System.out.println(e.getMessage());
             }
         }
+        String name = Utils.getName();
 
-        System.out.print("Nhập tên: ");
-        String name = scanner.nextLine();
 
-        System.out.print("Nhập ngày sinh: ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth = Utils.getDateOfBirth();
 
         System.out.print("Nhập điểm: ");
         int point = Integer.parseInt(scanner.nextLine());
