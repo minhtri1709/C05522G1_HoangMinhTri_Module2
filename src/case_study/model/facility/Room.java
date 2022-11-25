@@ -3,41 +3,42 @@ package case_study.model.facility;
 import case_study.model.facility.Facility;
 
 public class Room extends Facility {
-    private String view;
-    int roomNumber;
+  private String freeService;
 
 
     public Room() {
 
     }
 
-    public Room(String typeOfFacility, int area, int bedTypes, String bathroom, String view, int roomNumber) {
-        super(typeOfFacility, area, bedTypes, bathroom);
-        this.view = view;
-        this.roomNumber =roomNumber;
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s"
+                , super.getIdService()
+                , super.getNameOfService()
+                , super.getArea()
+                , super.getPrice()
+                , super.getMaxPeopleInRoom()
+                , super.getKindOfRent()
+                , this.freeService);
     }
 
-    public String getView() {
-        return view;
+    public Room(String idService, String nameOfService, int area, String price, int maxPeopleInRoom, String kindOfRent, String freeService) {
+        super(idService, nameOfService, area, price, maxPeopleInRoom, kindOfRent);
+        this.freeService = freeService;
     }
 
-    public void setView(String view) {
-        this.view = view;
+    public String getFreeService() {
+        return freeService;
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setFreeService(String freeService) {
+        this.freeService = freeService;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                "view='" + view + '\'' +
-                ", roomNumber=" + roomNumber +
-                "} " + super.toString();
+                "freeService='" + freeService + '\''
+                 + super.toString();
     }
 }

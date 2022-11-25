@@ -46,4 +46,6 @@ public abstract class Person {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public abstract String getInfo();
 }

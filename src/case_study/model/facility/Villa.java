@@ -3,40 +3,61 @@ package case_study.model.facility;
 import case_study.model.facility.Facility;
 
 public class Villa extends Facility {
-    private String pool;
-    private String  grassGarden;
+
+    private String typeOfRoom;
+    private int areaOfPool;
+    private int floor;
+
 
     public Villa() {
-
     }
 
-    public Villa(String typeOfFacility, int area, int bedTypes, String bathroom, String pool, String grassGarden) {
-        super(typeOfFacility, area, bedTypes, bathroom);
-        this.pool = pool;
-        this.grassGarden = grassGarden;
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s", super.getIdService(), super.getNameOfService(), +
+                        super.getArea(), super.getPrice(), super.getMaxPeopleInRoom(), super.getKindOfRent(), this.typeOfRoom,
+                this.areaOfPool, this.floor);
     }
 
-    public String getPool() {
-        return pool;
+    public Villa(String idService, String nameOfService, int area, String price, int maxPeopleInRoom
+            , String kindOfRent, String typeOfRoom, int areaOfPool, int floor) {
+        super(idService, nameOfService, area, price, maxPeopleInRoom, kindOfRent);
+        this.typeOfRoom = typeOfRoom;
+        this.areaOfPool = areaOfPool;
+        this.floor = floor;
     }
 
-    public void setPool(String pool) {
-        this.pool = pool;
+    public String getTypeOfRoom() {
+        return typeOfRoom;
     }
 
-    public String getGrassGarden() {
-        return grassGarden;
+    public void setTypeOfRoom(String typeOfRoom) {
+        this.typeOfRoom = typeOfRoom;
     }
 
-    public void setGrassGarden(String grassGarden) {
-        this.grassGarden = grassGarden;
+    public int getAreaOfPool() {
+        return areaOfPool;
     }
+
+    public void setAreaOfPool(int areaOfPool) {
+        this.areaOfPool = areaOfPool;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
 
     @Override
     public String toString() {
         return "Villa{" +
-                "pool='" + pool + '\'' +
-                ", grassGarden='" + grassGarden + '\'' +
-                "} " + super.toString();
+                "typeOfRoom='" + typeOfRoom + '\'' +
+                ", areaOfPool=" + areaOfPool +
+                ", floor=" + floor +
+                 super.toString();
     }
 }

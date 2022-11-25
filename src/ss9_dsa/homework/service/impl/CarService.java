@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CarService implements IVehicleService {
+public class
+CarService implements IVehicleService {
     private static List<Car> carList = new ArrayList<Car>();
     private static Scanner scanner = new Scanner(System.in);
 

@@ -27,6 +27,6 @@ public class Teacher extends Person{
     }
 
     public String getInfo(){
-        return String.format("%s, %s, %s, %s\n", this.getId(), this.getName(), this.getDateOfBirth(),this.getSpecialize());
+        return String.format("%s,%s,%s,%s", this.getId(), this.getName(), this.getDateOfBirth(),this.getSpecialize());
     }
 }
